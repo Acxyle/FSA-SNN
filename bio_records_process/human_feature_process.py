@@ -255,7 +255,14 @@ class human_feature_process(human_raw_data_process, primate_feature_process):
         # -----
         suptitle = f"{model_structure} {layer} {unit_type} {target} PDF"
         
-        if np.any(feature<0):     # -> details for original data, simple for log data
+        
+        if feature.size < 2:
+            
+            fig, ax = plt.subplots(1, 2, figsize=(20,10))
+            
+            return fig
+        
+        elif np.any(feature<0):     # -> details for original data, simple for log data
             
             # --- original
             fig, ax = plt.subplots(1, 2, figsize=(20,10))
