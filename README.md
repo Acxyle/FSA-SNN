@@ -1,15 +1,15 @@
-# [Representing Primate Neuronal Coding of Face with Spiking Neural Networks]
+## [Representing Primate Neuronal Coding of Face with Spiking Neural Networks]
 
-# Abstract
+- Abstract
 
 Face-identity Selectivity Analysis (FSA) + Spiking Neural Network (SNN)
 
-**[Action Required]**
+[Action Required]
 
   ...
 
 
-# Refer to:
+- Refer to:
 
 - Spikingjelly
 - STBP
