@@ -2,9 +2,9 @@
 
 - Abstract
 
-Face-identity Selectivity Analysis (FSA) + Spiking Neural Network (SNN)
+  Face-identity Selectivity Analysis (FSA) + Spiking Neural Network (SNN)
 
-[Action Required]
+  [Action Required]
 
   ...
 
