@@ -378,30 +378,3 @@ class FSA_ANOVA_Comparison(FSA_ANOVA_folds):
         plt.close()
     
    
-# ======================================================================================================================
-if __name__ == "__main__":
-    
-    FSA_root = '/home/acxyle-workstation/Downloads/FSA'
-    
-    # -----
-    layers_info_generator = utils_.Resnet_layers_info_generator(model='resnet152')
-    
-    layers, units, shapes = layers_info_generator.get_layer_names_and_units_and_shapes()
-    layers, units, shapes = zip(*[(l, u, s) for l, u, s in zip(layers, units, shapes) if 'an' in l])
-    
-    # --- 1. Single Model
-    #FSA_ANOVA(os.path.join(FSA_root, 'Resnet/Resnet/FSA Resnet152_C2k_fold_/runs/FSA Resnet152_C2k_fold_0'), layers=layers, units=units)()
-    
-    # --- 2. Folds
-    FSA_ANOVA_folds(num_folds=5, root=os.path.join(FSA_root, 'Resnet/Resnet/FSA Resnet152_C2k_fold_'), layers=layers, units=units)()
-    
-    # --- 2. Multi Models Comparison
-    roots_models = [
-        (os.path.join(FSA_root, 'VGG/SpikingVGG/FSA SpikingVGG16bn_LIF_ATan_T4_C2k_fold_'), 'spiking_vgg16_bn'),
-        (os.path.join(FSA_root, 'VGG/SpikingVGG/FSA SpikingVGG16bn_LIF_ATan_T8_C2k_fold_'), 'spiking_vgg16_bn'),
-        (os.path.join(FSA_root, 'VGG/SpikingVGG/FSA SpikingVGG16bn_LIF_ATan_T16_C2k_fold_'), 'spiking_vgg16_bn'),
-        (os.path.join(FSA_root, 'VGG/VGG/FSA VGG16bn_C2k_fold_'), 'vgg16_bn'),
-        ]
-    FSA_ANOVA_Comparison()(roots_models)
-    
-    
