@@ -9,11 +9,6 @@ Face-identity Selectivity Analysis (FSA) + Spiking Neural Network (SNN)
   ...
 
 
-- Refer to:
-
-- Spikingjelly
-- STBP
-- ANN2SNN
-
-
-Please refer to source repo for scripts
+- Note
+  
+  Please refer to source repo for scripts
