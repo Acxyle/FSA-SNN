@@ -490,35 +490,3 @@ class FSA_Gram(FSA_Encode):
             ax2.invert_xaxis()
             
             
- 
-# ======================================================================================================================
-if __name__ == '__main__':
-
-    FSA_root = '/home/acxyle-workstation/Downloads/FSA'
-    FSA_dir = 'VGG/SpikingVGG'
-    model_depth = 16
-    T = 8
-    FSA_config = f'SpikingVGG{model_depth}bn_IF_ATan_T4_C2k_fold_'
-    FSA_model =  f'spiking_vgg{model_depth}_bn'
-    
-    _, layers, neurons, _ = utils_.get_layers_and_units(FSA_model, 'act')
-    
-    # -----
-    #DR_analyzer = FSA_DR(root=os.path.join(root_dir, 'Face Identity Baseline'), layers=layers, neurons=neurons)
-    #DR_analyzer.DR_TSNE()
-    
-    for _ in range(4,5):
-        
-        root = os.path.join(FSA_root, FSA_dir, f'FSA {FSA_config}/-_Single Models/FSA {FSA_config}{_}')
-        #root = os.path.join(FSA_root, FSA_dir, f'FSA {FSA_config}')
-    
-        DSM_analyzer = FSA_DSM(root=root, layers=layers, neurons=neurons)
-        DSM_analyzer.calculation_DSM()
-    
-        Gram_analyzer = FSA_Gram(root=root, layers=layers, neurons=neurons)
-        Gram_analyzer.calculation_Gram()
-        Gram_analyzer.plot_Gram_intensity()
-    
-    #Gram_analyzer.plot_Gram_intensity(kernel='linear')
-    #for threshold in [0.5, 1.0, 2.0, 10.0]:
-    #    Gram_analyzer.calculation_Gram(kernel='rbf', threshold=threshold)
