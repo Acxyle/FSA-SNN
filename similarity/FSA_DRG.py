@@ -319,7 +319,7 @@ class FSA_Gram(FSA_Encode):
         
         super().__init__(**kwargs)
         
-        used_unit_types = self.basic_types_display + self.advanced_types_display + ['a_s', 'a_m'] if used_unit_types is None else used_unit_types
+        self.used_unit_types = self.basic_types_display + self.advanced_types_display + ['a_s', 'a_m'] if used_unit_types is None else used_unit_types
 
         self.dest_Gram = os.path.join(self.dest, 'Gram')
         utils_.make_dir(self.dest_Gram)
@@ -341,8 +341,7 @@ class FSA_Gram(FSA_Encode):
             
         else:
             
-            self.Sort_dict = self.load_Sort_dict()
-            self.Sort_dict = self.calculation_Sort_dict(self.used_unit_types) if self.used_unit_types is not None else self.Sort_dict
+            self.Sort_dict = self.calculation_Sort_dict(self.used_unit_types)
             
             def _calculation_Gram(layer, normalize, **kwargs):
                 
@@ -488,5 +487,3 @@ class FSA_Gram(FSA_Encode):
             ax2.set_xlabel("%", color='red')
             ax2.tick_params(axis='x', labelcolor='red')
             ax2.invert_xaxis()
-            
-            
