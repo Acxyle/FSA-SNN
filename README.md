@@ -4,11 +4,6 @@
 
   Face-identity Selectivity Analysis (FSA) + Spiking Neural Network (SNN)
 
-  [Action Required]
+- [Action Required]
 
   ...
-
-
-- Note
-  
-  Please refer to source repo for scripts
